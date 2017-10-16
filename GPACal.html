@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GPA Calculator</title>
+    <meta name="description" content="Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version." />
+
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.css" rel="stylesheet">
+    <link href="docs/assets/css/demo.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="dist/js/vendor/html5shiv.js"></script>
+      <script src="dist/js/vendor/respond.min.js"></script>
+    <![endif]-->
+    <script lang="text/javascript" src="index.js"></script>
+    <script src="dist/Chart.bundle.js"></script>
+    <script src="dist/utils.js"></script>
+</head>
+
+<body>
+    <div class=" row demo-row">
+        <div class="col-xs-12">
+            <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                        <span class="sr-only">Toggle navigation</span>
+                    </button>
+                    <a class="navbar-brand" href="#">GPACal</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#functions">功能
+                                <span class="navbar-unread">1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about">关于</a>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right" action="#" role="search">
+                        <span class="fui-user"></span>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn">
+                                        <span class="fui-search"></span>
+                                </button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+            <!-- /navbar -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="demo-headline">
+            <h1 class="demo-logo">
+                GPA Calculator
+                <small>Record and Automatically Calculate your GPA Index</small>
+            </h1>
+        </div>
+        <!-- /demo-headline -->
+        <div class="row demo-tiles" id="functions">
+            <div class="col-xs-3">
+                <div class="tile">
+                    <img src="img/icons/svg/compas.svg" alt="Compas" class="tile-image big-illustration">
+                    <h3 class="tile-title">添加／修改课程</h3>
+                    <p>添加／修改现有的课程名称、成绩等信息</p>
+                    <a class="btn btn-primary btn-large btn-block" href="#modify">前往</a>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="tile">
+                    <img src="img/icons/svg/loop.svg" alt="Infinity-Loop" class="tile-image">
+                    <h3 class="tile-title">评价</h3>
+                    <p>查看所有课程或部分课程的GPA评价</p>
+                    <a class="btn btn-primary btn-large btn-block" href="#evaluation">前往</a>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="tile">
+                    <img src="img/icons/svg/pencils.svg" alt="Pensils" class="tile-image">
+                    <h3 class="tile-title">学习任务</h3>
+                    <p>为提升GPA制定计划和任务并按时完成</p>
+                    <a class="btn btn-primary btn-large btn-block" href="#task">前往</a>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="tile tile-hot">
+                    <img src="img/icons/svg/ribbon.svg" alt="ribbon" class="tile-hot-ribbon">
+                    <img src="img/icons/svg/chat.svg" alt="Chat" class="tile-image">
+                    <h3 class="tile-title">分享</h3>
+                    <p>将自己的心情分享给朋友和同学，并查看他人的分享</p>
+                    <a class="btn btn-primary btn-large btn-block" href="#share">前往</a>
+                </div>
+
+            </div>
+        </div>
+        <!-- /tiles -->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id="modify" class="demo-type-example" align="center">
+            <h1>
+                <span class="demo-heading-note">查看／添加课程</span>
+            </h1>
+        </div>
+        <br>
+        <div id="modify" class="demo-type-example" align="center">
+            <h5>
+                <span class="demo-heading-note">查看课程</span>
+            </h5>
+        </div>
+        <div class="row" name="course_container">
+        </div>
+        <div id="modify" class="demo-type-example" align="center">
+            <h5>
+                <span class="demo-heading-note">添加课程</span>
+            </h5>
+        </div>
+        <form action="add_course.php" method="get">
+            <div id="course_input" name="course_input" class="row">
+                <div>
+                    <div class="col-xs-3">
+                        <div class="form-group">
+                            <input name="name" type="text" value="" placeholder="name" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="form-group has-success">
+                            <input name="rank" type="text" value="" placeholder="rank" class="form-control" />
+                            <span class="input-icon fui-check-inverted"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="form-group has-error">
+                            <input name="gpa" type="text" value="" placeholder="gpa" class="form-control" />
+                            <span class="input-icon fui-check-inverted"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="tagsinput-primary">
+                            <input name="tags" name="tagsinput" class="tagsinput" placeholder="tags" data-role="tagsinput" value="" />
+                        </div>
+                    </div>
+                </div>
+                <input onclick="course_judge()" type="submit" value="提交" class="btn btn-block btn-lg btn-info">
+
+            </div>
+        </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id="evaluation" class="demo-type-example" align="center">
+            <h1>
+                <span class="demo-heading-note">评价</span>
+            </h1>
+        </div>
+        <br>
+        <div id="whole_evaluation" class="demo-type-example" align="center">
+            <h5>
+                <span class="demo-heading-note">总体评价</span>
+            </h5>
+            <div class="rows">
+                <div class="col-xs-5">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 45%;"></div>
+                    </div>
+                    <br/>
+                    <div class="demo-icons">
+                        <div class="demo-content">
+                            <span name="rank_all" class="fui-check-circle">总学分20</span>
+                            <span name="gpa_all" class="fui-mic"> G P A 3.2</span>
+                            <span name="per_all" class="fui-time">完成度28%</span>
+                        </div>
+                    </div>
+                </div>
+                <div align="right">
+                    <div style="width:40%">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                    <script>
+                        var randomScalingFactor = function() {
+                            return Math.round(Math.random() * 100);
+                        };
+
+                        var color = Chart.helpers.color;
+                        var config;
+                        setData();
+
+                        window.onload = function() {
+                            window.myRadar = new Chart(document.getElementById("canvas"), config);
+                            getRecord();
+
+                        };
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id="task" class="demo-type-example" align="center">
+            <h1>
+                <span class="demo-heading-note">学习任务</span>
+            </h1>
+        </div>
+        <div class="row demo-samples">
+            <div class="col-xs-12">
+                <div class="todo">
+                    <div class="todo-search">
+                        <input class="todo-search-field" type="search" value="" placeholder="Search" />
+
+
+                    </div>
+
+                    <ul>
+                        <div name="todolist">
+
+                        </div>
+                        <li>
+                            <div class="todo-icon fui-plus"></div>
+                            <div class="todo-content">
+                                <h6 class="todo-name">
+                                    Click to
+                                    <strong>ADD</strong> a todo
+                                </h6>
+                                Add a to-do task of your GPA promoting plan!
+
+                                <form action="add_todo.php" mmethod="get">
+                                    <div class="col-xs-4">
+                                        <div class="tagsinput-primary">
+                                            <input name="title" type="text" value="" placeholder="title" class="form-control" /> </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="tagsinput-primary">
+                                            <input name="content" type="text" value="" placeholder="content" class="form-control" /> </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="submit" value="confirm" class="btn btn-block btn-lg btn-info">
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.todo -->
+            </div>
+        </div>
+        <!-- /.col-xs-4 -->
+        <div id="share" class="demo-type-example" align="center">
+            <h1>
+                <span class="demo-heading-note">分享</span>
+            </h1>
+        </div>
+        <br>
+
+    </div>
+    <!-- /container -->
+
+    <footer>
+        <div id="about" class="container">
+            <div class="row">
+                <div class="col-xs-7">
+                    <h3 class="footer-title">Subscribe</h3>
+                    <p>Do you like this page? Want to make some contributions to this?
+                        <br/> Feel free to dowload the source code and modify it.
+                        <br/> Go to:
+                        <a href="https://github.com/Haisu7025/GPACal.git" target="_blank">Github Source Code</a>
+                    </p>
+
+
+
+                    <a class="footer-brand" href="https://github.com/Haisu7025/GPACal.git" target="_blank">
+                        <img src="docs/assets/img/footer/logo.png" alt="https://bitbucket.org/yuhs15/gpacal" />
+                    </a>
+                </div>
+                <!-- /col-xs-7 -->
+
+                <div class="col-xs-5">
+                    <div class="footer-banner">
+                        <h3 class="footer-title">Get GPA Calculator</h3>
+                        <ul>
+                            <li>Original Design of GPA calculator</li>
+                            <li>Some other statiscs</li>
+                            <li>More functions</li>
+                            <li>Welcome to contribute</li>
+                            <li>Based on Flat UI</li>
+                        </ul>
+                        Go to:
+                        <a href="https://github.com/Haisu7025/GPACal.git" target="_blank">Github</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <script src="dist/js/vendor/video.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
+    <script src="docs/assets/js/application.js"></script>
+</body>
+
+</html>
